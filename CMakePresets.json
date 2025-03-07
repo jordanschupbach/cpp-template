@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 27,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "toolchainFile": "${sourceDir}/cmake/toolchains/archlinux-x86-gcc.cmake",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_MAKE_PROGRAM": "/usr/bin/make"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+[submodule "cmake/extern/CPM.cmake"]
+	path = cmake/extern/CPM.cmake
+	url = https://github.com/cpm-cmake/CPM.cmake

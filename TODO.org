@@ -1,2 +1,15 @@
+* TODO Add code coverage
+* TODO Add Doxygen
+* TODO Add Testing framework
+* DONE Add PackageProject
+
+* DONE Add simple library
+* DONE Add toolchain file
+* DONE Add presets file
+  :LOGBOOK:
+  CLOCK: [2025-03-07 Fri 14:55]--[2025-03-07 Fri 15:20] => 0:25
+  :END:
+
+* DONE Add CPM
 * DONE Add example executable
 * DONE Add initial cmake setup
