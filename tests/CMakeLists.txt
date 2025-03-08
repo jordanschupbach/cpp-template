@@ -8,8 +8,10 @@ include(../cmake/extern/CPM.cmake/cmake/CPM.cmake)
 cpmaddpackage("gh:doctest/doctest@2.4.9")
 
 if(TEST_INSTALLED_VERSION)
+  message("Using installed version of CPPTemplate")
   find_package(CPPTemplate REQUIRED)
 else()
+  message("Using local version of CPPTemplate")
   cpmaddpackage(NAME CPPTemplate SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 endif()
 

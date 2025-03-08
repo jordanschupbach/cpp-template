@@ -35,4 +35,9 @@ jobs:
         run: |
           cmake -S ./tests -B ./build/debug/tests --preset=debug && make -C build/debug/tests && cd build/debug/tests && ctest --build-config Debug
 
+      - name: install
+        run: |
+          cmake -S . -B ./build/release --preset=release && make -C build/release install
+          cmake -S ./tests -B ./build/release/tests --preset=release -DTEST_INSTALLED_VERSION=ON && make -C build/release/tests && cd build/release/tests && ctest --build-config Debug
+
 
