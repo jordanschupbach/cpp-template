@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 27,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "toolchainFile": "${sourceDir}/../cmake/toolchains/linux-x86-gcc-debug.cmake",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_MAKE_PROGRAM": "/usr/bin/make"
+      }
+    },
+    {
+      "name": "release",
+      "toolchainFile": "${sourceDir}/../cmake/toolchains/linux-x86-gcc-release.cmake",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_MAKE_PROGRAM": "/usr/bin/make"
+      }
+    }
+  ]
+}

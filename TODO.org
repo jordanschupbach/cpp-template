@@ -2,8 +2,7 @@
 * TODO Begin windows setup/testing
 * TODO Add CI/CD pipeline
 * TODO Add code coverage reporting
-* TODO Add documentation (via Doxygen)
-
+* DONE Add documentation (via Doxygen)
 * DONE Add testing framework (via doctest)
 * DONE Setup mechanisms for cmake to find library
 * DONE Test installation of cpp-template

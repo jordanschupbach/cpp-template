@@ -1,3 +1,5 @@
+.PHONY: docs
+
 TARGET = cpptemplate
 
 build-run:
@@ -32,6 +34,9 @@ archlinux-install: archlinux-build-release
 test:
 	cd build && cmake ../tests -B ./debug/tests --preset=debug && make -C debug/tests
 	./build/debug/tests/cpptemplateTests
+
+docs:
+	cd build && cmake -S ../docs -B debug/docs --preset=debug && cmake --build debug/docs --target GenerateDocs
 
 # TODO: Add test-installed target
 # test-installed: install
