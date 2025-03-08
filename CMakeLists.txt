@@ -83,20 +83,11 @@ add_executable(cpptemplate main.cpp)
 target_link_libraries(cpptemplate PRIVATE ${PROJECT_NAME})
 
 
-add_custom_target(CreateSymlink ALL
-    COMMAND ${CMAKE_COMMAND} -E create_symlink
-        "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
-        "${CMAKE_SOURCE_DIR}/compile_commands.json"
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json
-    COMMENT "Creating symlink to compile_commands.json"
-)
-
-# add_custom_command(
-#   POST_BUILD
-#   COMMAND ${CMAKE_COMMAND} -E create_symlink
-#       "${CMAKE_CURRENT_BINARY_DIR}/debug/compile_commands.json"
-#       "${CMAKE_SOURCE_DIR}/compile_commands.json"
-#   COMMENT "Creating symlink to compile_commands.json"
+# add_custom_target(CreateSymlink ALL
+#     COMMAND ${CMAKE_COMMAND} -E create_symlink
+#         "${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json"
+#         "${CMAKE_SOURCE_DIR}/compile_commands.json"
+#     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/compile_commands.json
+#     COMMENT "Creating symlink to compile_commands.json"
 # )
-
 
