@@ -33,6 +33,6 @@ jobs:
 
       - name: test
         run: |
-          cd debug/tests && ctest --build-config Debug
+          cmake ../tests -B ./debug/tests --preset=debug && make -C debug/tests && cd debug/tests && ctest --build-config Debug
 
 
