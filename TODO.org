@@ -1,7 +1,7 @@
 * TODO Add standalone project
 * TODO Begin windows setup/testing
 * TODO Add CI/CD pipeline
-* TODO Add code coverage reporting
+* DONE Add code coverage reporting
 * DONE Add documentation (via Doxygen)
 * DONE Add testing framework (via doctest)
 * DONE Setup mechanisms for cmake to find library

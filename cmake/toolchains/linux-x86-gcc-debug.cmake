@@ -9,5 +9,5 @@ set(CMAKE_CXX_COMPILER "g++")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Set warnings
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror  -fPIC -g -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -fPIC -g -fprofile-arcs -ftest-coverage")
