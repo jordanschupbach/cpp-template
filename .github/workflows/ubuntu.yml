@@ -37,7 +37,7 @@ jobs:
 
       - name: install
         run: |
-          cmake -S . -B ./build/release --preset=release && make -C build/release install
+          cmake -S . -B ./build/release --preset=release && sudo make -C build/release install
           cmake -S ./tests -B ./build/release/tests --preset=release -DTEST_INSTALLED_VERSION=ON && make -C build/release/tests && cd build/release/tests && ctest --build-config Debug
 
 
