@@ -33,6 +33,6 @@ jobs:
 
       - name: test
         run: |
-          cd build/debug/tests && ctest --build-config Debug
+          cd debug/tests && ctest --build-config Debug
 
 
