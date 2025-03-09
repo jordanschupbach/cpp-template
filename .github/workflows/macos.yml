@@ -37,5 +37,6 @@ jobs:
       - name: test
         run: |
           cmake -S ./tests -B build/debug/tests --preset=macos-debug
+          cmake --build build/debug/tests -j4
           cd build/debug/tests/
           ctest --build-config Debug
