@@ -1,0 +1,43 @@
+name: Windows
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+
+env:
+  CTEST_OUTPUT_ON_FAILURE: 1
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - uses: actions/cache@v3
+        with:
+          path: "**/cpm_modules"
+          key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
+
+      - name: configure
+        run: cmake -S . -B ./build/debug --preset=win-x64-debug
+
+
+      - name: build
+        run: ninja -C ./build/debug -j4
+
+      - name: test
+        run: |
+          cd build
+          cmake -S tests -B ./build/debug/tests --preset=win-x64-debug && ninja -C build/debug/tests
+          build/debug/tests/cpptemplateTests
+
+
