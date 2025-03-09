@@ -40,7 +40,7 @@ jobs:
       - name: build
         run: |
           cmake -S . -B ./build/debug --preset=win-x64-debug
-          cmake --build build --config Debug -j4
+          cmake --build build/debug -j4
       - name: test
         run: |
           cmake -S tests -B ./build/debug/tests --preset=win-x64-debug
