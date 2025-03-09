@@ -23,10 +23,6 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
       - name: Checkout submodules
         run: git submodule update --init --recursive
-      - uses: actions/cache@v3
-        with:
-          path: "**/cpm_modules"
-          key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
       - name: Install Ninja on Windows
         run: choco install ninja -y
       - name: Set up Visual Studio environment
