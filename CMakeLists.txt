@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.27) # TODO: investigate if this is the minimum
 project(
   CPPTemplate
   VERSION 0.0.1
-  LANGUAGES CXX)
+  LANGUAGES C CXX)
 
 message(STATUS "System Name: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "C Compiler: ${CMAKE_C_COMPILER}")
