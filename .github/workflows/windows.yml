@@ -23,12 +23,19 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
       - name: Checkout submodules
         run: git submodule update --init --recursive
+      - uses: actions/cache@v3
+        with:
+          path: "**/cpm_modules"
+          key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
       - name: Install Ninja on Windows
         run: choco install ninja -y
       - name: Set up Visual Studio environment
         shell: cmd
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+      - name: Clean Build Directory
+        run: |
+          if exist ./build/debug rmdir /s /q ./build/debug
       - name: build
         run: |
           cmake -S . -B ./build/debug --preset=win-x64-debug
