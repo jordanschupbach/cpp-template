@@ -38,7 +38,7 @@ message(STATUS "cxx_sources: ${cxx_sources}")
 message(STATUS "cpp_sources: ${cpp_sources}")
 
 # Both built into single library for now...
-add_library(${PROJECT_NAME} SHARED ${c_headers} ${c_sources} ${cxx_headers}
+add_library(${PROJECT_NAME} STATIC ${c_headers} ${c_sources} ${cxx_headers}
                                    ${cpp_sources} ${cxx_sources})
 
 # Can I set both standards?

@@ -20,19 +20,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      - name: Install Ninja on Windows
+        run: choco install ninja -y
+      - name: Set up Visual Studio environment
+        shell: cmd
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          cmake -S .. -G "Ninja" -DCMAKE_BUILD_TYPE=Release
       - uses: actions/cache@v3
         with:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
-
-      - name: configure
-        run: cmake -Stest -Bbuild
-
       - name: build
         run: cmake --build build --config Debug -j4
-
+        run: cmake -S . -B ./build/debug --preset=win-x64-debug
       - name: test
         run: |
-          cd build
-          ctest --build-config Debug
+          cmake -S tests -B ./build/debug/tests --preset=win-x64-debug && ninja -C build/debug/tests
+          build/debug/tests/cpptemplateTests
