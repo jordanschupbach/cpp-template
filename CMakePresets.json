@@ -77,6 +77,34 @@
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
+    },
+    {
+      "name": "macos-debug",
+      "hidden": false,
+      "generator": "Xcode",
+      "setups": [
+        {
+          "name": "macos",
+          "compiler": "clang",
+          "flags": {
+            "CMAKE_BUILD_TYPE": "Debug"
+          }
+        }
+      ]
+    },
+    {
+      "name": "macos-release",
+      "hidden": false,
+      "generator": "Xcode",
+      "setups": [
+        {
+          "name": "macos",
+          "compiler": "clang",
+          "flags": {
+            "CMAKE_BUILD_TYPE": "Release"
+          }
+        }
+      ]
     }
   ]
 }
