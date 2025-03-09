@@ -21,6 +21,17 @@ build-release:
 	mkdir -p build
 	cd build && cmake  .. --preset=release && make -C release
 
+
+build-windows:
+	cmake -S . -B ./build/debug --preset=win-x64-debug && ninja -C ./build/debug
+
+
+test-windows:
+	cmake -S tests -B ./build/debug/tests --preset=win-x64-debug && ninja -C build/debug/tests
+	build/debug/tests/cpptemplateTests
+
+
+
 install: build-release
 	cd build/release && make install
 
