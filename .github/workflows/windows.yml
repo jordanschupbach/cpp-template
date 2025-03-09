@@ -34,8 +34,9 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
       - name: build
-        run: cmake --build build --config Debug -j4
-        run: cmake -S . -B ./build/debug --preset=win-x64-debug
+        run: |
+          cmake --build build --config Debug -j4
+          cmake -S . -B ./build/debug --preset=win-x64-debug
       - name: test
         run: |
           cmake -S tests -B ./build/debug/tests --preset=win-x64-debug && ninja -C build/debug/tests
